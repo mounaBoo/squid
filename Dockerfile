@@ -13,18 +13,13 @@ build-essential
 
 WORKDIR /usr/src/app/
 
+RUN sudo apt install http://cdn-fastly.deb.debian.org/debian/pool/main/s/squid/squid-cgi_4.10-1_armhf.deb
 
-RUN /usr/src/app/download.sh "%%BALENA_ARCH%%"
-
-RUN dpkg -i /tmp/squid.deb && rm /tmp/squid.deb
-
-
-RUN update-rc.d squid3 enable
-
+sudo dpkg -i squid-cgi_4.10-1_armhf.deb
 
 
 #cp file configuration
 
-COPY ./squid.conf /usr/src/app/squid3/
+COPY ./squid.conf /usr/src/app/squid/
 
-CMD ["service","squid3","restart"]
+CMD ["service","squid","restart"]
