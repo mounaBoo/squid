@@ -15,7 +15,7 @@ WORKDIR /usr/src/app/
 
 RUN sudo apt install http://cdn-fastly.deb.debian.org/debian/pool/main/s/squid/squid-cgi_4.10-1_armhf.deb
 
-sudo dpkg -i squid-cgi_4.10-1_armhf.deb
+RUN sudo dpkg -i squid-cgi_4.10-1_armhf.deb
 
 
 #cp file configuration
