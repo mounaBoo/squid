@@ -8,12 +8,15 @@ FROM resin/rpi-raspbian
 RUN apt update && apt install -y --no-install-recommends \
 ca-certificates \
 apt-transport-https \
-build-essential
+build-essential \
+wget 
 
 
 WORKDIR /usr/src/app/
 
-RUN sudo apt install http://cdn-fastly.deb.debian.org/debian/pool/main/s/squid/squid-cgi_4.10-1_armhf.deb
+RUN wget http://cdn-fastly.deb.debian.org/debian/pool/main/s/squid/squid-cgi_4.10-1_armhf.deb
+
+#RUN sudo apt install http://cdn-fastly.deb.debian.org/debian/pool/main/s/squid/squid-cgi_4.10-1_armhf.deb
 
 RUN sudo dpkg -i squid-cgi_4.10-1_armhf.deb
 
